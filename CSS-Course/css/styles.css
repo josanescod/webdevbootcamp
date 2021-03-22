@@ -1,0 +1,23 @@
+
+
+h1 {
+    color:red;
+}
+
+/**************************** TAG SELECTORS ****************************/
+/*
+img {
+    width: 20%;
+    height: 20%;
+    background-color: yellow;
+}
+*/
+/**************************** TAG SELECTORS ****************************/
+
+.bacon {
+    background-color: red;
+}
+
+.broccoli {
+    background-color: green;
+}
