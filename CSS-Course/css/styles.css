@@ -5,13 +5,12 @@ h1 {
 }
 
 /**************************** TAG SELECTORS ****************************/
-/*
-img {
-    width: 20%;
-    height: 20%;
-    background-color: yellow;
+
+img:hover {
+    
+    background-color: gold;
 }
-*/
+
 /**************************** TAG SELECTORS ****************************/
 
 .bacon {
@@ -20,4 +19,14 @@ img {
 
 .broccoli {
     background-color: green;
+}
+
+.circular {
+    border-radius: 100%;
+}
+
+/**************************** ID SELECTORS ****************************/
+
+#heading{
+    color:blue;
 }
