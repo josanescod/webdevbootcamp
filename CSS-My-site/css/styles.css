@@ -1,16 +1,34 @@
 
+/*
+display properties
+
+some elements has block display, ocupan toda la pantalla
+
+Block elements: p,h1,div,ol,ul,li,form  -> it can use width
+Inline elements: span,img,anchors -> it can't use width
+Inline-block elements::after
+None: remove element from the website and his flow
+
+visibility: hidden; hide element but there is a gap.
+
+
+
+
+
+we can use display property: inline or block
+Inline-block: same line and use width
+
+
+*/
+
+
 body{
     margin-left:0;
 }
 
-div {
+.top-container {
     background-color: #e4f9f5;
-        
-    width:200px;
-    height: 200px;
-    border:10px;
-    border-style:solid;
-    padding: 20px;
+  
 }
 
 h1 {
@@ -37,4 +55,8 @@ h1 {
     margin-left: 540px;
 
   
+}
+
+.pro{
+    text-decoration: underline;
 }
