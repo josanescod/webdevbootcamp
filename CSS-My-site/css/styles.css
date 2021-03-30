@@ -10,28 +10,43 @@ Inline-block elements::after
 None: remove element from the website and his flow
 
 visibility: hidden; hide element but there is a gap.
-
-
-
-
-
 we can use display property: inline or block
 Inline-block: same line and use width
 
 
 */
 
+/*
+position properties:
+
+Static: all html element is static by default. 
+Relative: relativo a la posición static por defecto, no afecta  a la posición del resto de elementos
+Absolute: 
+Fixed:
+
+*/
+
+/*
+Para alinear objetos en body text-align:center 
+
+y por ejemplo en block elements,  si un h1 se le modifica el ancho, para que quede centrado margin: 0 auto 0 auto
+*/
+
 
 body{
     margin-left:0;
+    text-align: center;
 }
 
 .top-container {
     background-color: #e4f9f5;
+    position:relative;
+    padding-top: 100px;
   
 }
 
 h1 {
+    
     margin-top:0;
     
 }
@@ -59,4 +74,21 @@ h1 {
 
 .pro{
     text-decoration: underline;
+}
+
+.top-cloud{
+
+position:absolute;
+right: 300px;
+top: 50px;
+
+}
+
+
+.bottom-cloud{
+    position:absolute;
+    left: 300px;
+    bottom:300px;
+
+
 }
