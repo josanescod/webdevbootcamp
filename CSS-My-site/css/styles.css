@@ -101,3 +101,24 @@ top: 50px;
 
 
 }
+
+.skill-row {
+    width:50%;
+    margin:100px auto 100px auto;
+    text-align:left;
+    line-height: 2;
+}
+
+.coder-img {
+    float:left;
+    margin-right: 30px;
+}
+
+svg {
+    float:right;
+    margin-left: 30px;
+}
+
+/*.code-skill-description{
+    clear:right;
+}*/
