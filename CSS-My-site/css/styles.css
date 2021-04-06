@@ -37,6 +37,7 @@ body{
     margin-left:0;
     text-align: center;
     font-family: 'Merriweather', serif;
+    color:#40514E;
 }
 
 .top-container {
@@ -44,6 +45,10 @@ body{
     position:relative;
     padding-top: 100px;
   
+}
+
+.middle-container{
+    margin:100px 0;
 }
 
 h1 {
@@ -63,6 +68,7 @@ h2 {
     font-family: 'Sacramento', cursive;
     font-size: 2.5rem;
     color:#66BFBF;
+    padding-bottom:10px;
 
 }
 
@@ -78,11 +84,19 @@ a{
     color:#A1B6CC;
 }
 
+p {
+    line-height: 2;
+}
 #author {
     border-radius: 50%;
 }
 .pro{
     text-decoration: underline;
+}
+
+.intro {
+    width:30%;
+    margin:auto;
 }
 
 .top-cloud{
@@ -106,7 +120,7 @@ top: 50px;
     width:50%;
     margin:100px auto 100px auto;
     text-align:left;
-    line-height: 2;
+    
 }
 
 .coder-img {
