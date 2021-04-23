@@ -89,8 +89,7 @@ p {
 
 /* Testimonial Section */
 
-#testimonials {
-    padding: 7% 15%;
+#testimonials {    
     text-align: center;
     background-color: #ef8172;
     color: #fff;
@@ -102,6 +101,9 @@ p {
     margin: 20;
 }
 
+.carousel-item{
+    padding: 7% 15%;
+}
 /* Press Section */
 
 #press {
@@ -123,7 +125,4 @@ p {
     background-color: #ef8172;
 }
 
-/* Video 81 Carousel 
-Continuacion boostrap   
-*/
 
