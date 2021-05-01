@@ -131,9 +131,27 @@ p {
 
 /* Pricing section*/
 #pricing {
-    padding: 100 px;
+    /*padding: 100 px;*/
+    padding: 7% 15%;
+    
+    
+  
 }
 
+/* CTA section */
+#cta{
+    background-color:#ff4c68;
+    color:#fff;
+    padding: 7% 15%;
+
+}
+
+.cta-heading{
+    font-family: "Montserrat-Black";
+    font-size: 3.5rem;
+    line-height: 1.5;
+
+}
 
 @media (max-width: 1028px) {
     #title{
