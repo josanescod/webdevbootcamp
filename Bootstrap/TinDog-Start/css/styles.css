@@ -76,8 +76,7 @@ p {
 
 /* features section */
 
-#features {
-    padding: 7% 15%;
+#features {    
     background-color: #fff;
     position: relative;
 }
@@ -117,10 +116,6 @@ p {
     margin: 20;
 }
 
-.carousel-item {
-    padding: 7% 15%;
-}
-
 /* Press Section */
 
 #press {
@@ -156,15 +151,11 @@ p {
 
 #cta {
     background-color: #ff4c68;
-    color: #fff;
-    padding: 7% 15%;
+    color: #fff;    
 }
 
 /* Footer section */
 
-#footer {
-    padding: 7% 15%;   
-}
 
 .social-icon {
     margin: 20px 10px;
