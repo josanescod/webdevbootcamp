@@ -5,3 +5,6 @@ let dogName = 'Watson';
 console.log('this animal is a '+animal+" and its name is: "+dogName);
 
 console.log(animal.length);
+console.log(dogName.length);
+console.log(animal[1]);
+console.log(dogName[2]);
