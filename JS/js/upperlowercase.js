@@ -17,6 +17,8 @@ let firstChar = aName.slice(0,1);
 let upperCaseFirstChar = firstChar.toUpperCase();
 //c Isolate the rest of the name
 let restOfName = aName.slice(1,aName.length);
+//d Change the rest of the name to lower case
+restOfName = restOfName.toLowerCase();
 //3 We use the capitalized version of their name to greet them using an alert.
 let capitaliseName = upperCaseFirstChar + restOfName;
 //show complete name
