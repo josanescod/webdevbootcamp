@@ -1,9 +1,4 @@
 
-/*let dogName = 'rufus';
-let dogCat = "SALLY";
-dogCat = dogCat.toLowerCase();
-console.log(dogName.toUpperCase());
-console.log(dogCat);*/
 
 //1 create a var that stores the name that user enters via prompt
 let aName = prompt("What is your name?");
