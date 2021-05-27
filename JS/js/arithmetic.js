@@ -10,4 +10,8 @@ let e = 8%2;
 console.log('modulo 9%2 = '+e);
 let f = 12%8;
 console.log('modulo 12%8= '+f);
-// simbols order 
+// simbols order
+let dogAge = 8; 
+let humanAge = (dogAge -2)*4+21
+console.log('dog age: '+dogAge);
+console.log('dog age in human age: '+humanAge);
