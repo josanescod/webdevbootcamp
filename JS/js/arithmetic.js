@@ -15,3 +15,16 @@ let dogAge = 8;
 let humanAge = (dogAge -2)*4+21
 console.log('dog age: '+dogAge);
 console.log('dog age in human age: '+humanAge);
+
+//increment and decrement
+let x = 5;
+x++;
+console.log(x);
+let y = 10;
+y--;
+console.log(y);
+let z = 10;
+z +=2; // same than z = z + 2
+console.log(z);
+z -=4;
+console.log(z);//same than z = z - 4;
