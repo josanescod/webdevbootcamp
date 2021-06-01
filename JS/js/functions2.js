@@ -1,11 +1,11 @@
 // Parameters and arguments
 
-getMilk(5);
+getMilk(3);
 
 
 //cost of bottle 1.5€
-function getMilk(bottles) {
-  let cost = bottles * 1.5;
+function getMilk(money) {
+  let numberOfBottles = Math.floor(money/1.5);
   console.log("leaveHouse");
   console.log("moveRight");
   console.log("moveRight");
@@ -15,8 +15,7 @@ function getMilk(bottles) {
   console.log("moveUp");
   console.log("moveRight");
   console.log("moveRight")
-  console.log("cost of -> "+bottles+" bottle(s) is, "+cost+" euros")
-  console.log("buy "+ bottles + " bottles of milk");
+  console.log("You can buy "+ numberOfBottles + " bottles of milk.");
   console.log("moveLeft");
   console.log("moveLeft");
   console.log("moveDown");
