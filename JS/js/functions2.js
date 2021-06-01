@@ -23,3 +23,18 @@ function getMilk() {
     console.log("moveLeft");
     console.log("enterHouse");
   }
+
+
+  function getMilk2(bottles) {
+    console.log('buy '+ bottles + ' bottles of Milk');
+
+  }
+
+
+  //calling function getMilk3(2);
+  
+  function getMilk3(bottles) {
+    var cost = bottles * 1.5;
+    //Do something with cost
+    console.log('cost: '+cost);
+  }
