@@ -6,6 +6,7 @@ getMilk(3);
 //cost of bottle 1.5€
 function getMilk(money) {
   let numberOfBottles = Math.floor(money/1.5);
+  
   console.log("leaveHouse");
   console.log("moveRight");
   console.log("moveRight");
