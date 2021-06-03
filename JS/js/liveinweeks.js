@@ -1,16 +1,12 @@
-lifeInWeeks(45);
+lifeInWeeks(90);
 
 function lifeInWeeks(age) {
-    
-    let finishYear = 90;
 
-    let days;
-    let weeks;
-    let months;
-    days = (finishYear * 365) - (age * 365);
-    weeks = (finishYear * 52) - (age * 52);
-    months = (finishYear * 12) - (age * 12);    
+    let yearsRemaining = 90 - age;
+    let days = yearsRemaining * 365;
+    let weeks = yearsRemaining * 52;
+    let months = yearsRemaining * 12;
 
-    console.log('You have '+days+' days, '+weeks+' weeks, and '+months+' months left.');
+    console.log('You have ' + days + ' days, ' + weeks + ' weeks, and ' + months + ' months left.');
 
 }
