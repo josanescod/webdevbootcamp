@@ -6,6 +6,13 @@ function ageInDays(age){
 }
 
 
-//ageInDays(10);
+let newData = ageInDays(10);
 
-console.log('I have '+ageInDays(10)+ ' days');
+
+
+console.log(newData);
+
+console.log(newData);
+
+
+
