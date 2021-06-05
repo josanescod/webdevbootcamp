@@ -7,11 +7,7 @@ function ageInDays(age){
 
 
 let newData = ageInDays(10);
-
-
-
 console.log(newData);
-
 console.log(newData);
 
 
