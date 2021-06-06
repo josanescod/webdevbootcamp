@@ -1,5 +1,5 @@
-function getMilk(money) {
-    let milkBottlePrice = 1.5;
+function getMilk(money, milkBottlePrice) {
+    
     goToMarketPlace();
     console.log('buy ' + calcBottles(money, milkBottlePrice) + ' bottles of milk');
     returnAtHome();
@@ -42,4 +42,4 @@ function returnAtHome() {
     console.log('enterHouse');
 }
 
-console.log('Hello master, here is your ' + getMilk(8) + ' change');
+console.log('Hello master, here is your ' + getMilk(4,1.5) + ' change');
