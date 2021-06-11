@@ -6,7 +6,8 @@ bmi should equal around 20 in this case.
 
 
 function bmiCalculator(weight, height) {
-    let bmi = weight / (height * height);
+    //let bmi = weight / (height * height);
+    let bmi = weight / Math.pow(height, 2);
     console.log(bmi);
     return bmi.toFixed(2);
 }
