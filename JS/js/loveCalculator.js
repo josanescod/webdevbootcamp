@@ -8,9 +8,9 @@ loveScore = Math.floor(loveScore) + 1; //1-100
 
 
 if (loveScore >= 80 ){
-    console.log (loveScore + ', You love each other like Kanye loves Kanye.');
-} else if (loveScore > 50 && loveScore < 80) {
-    console.log(loveScore);
+    console.log ("Your love score is " + loveScore + "%. " + 'You love each other like Kanye loves Kanye.');
+} else if (loveScore > 30 && loveScore <= 70) {
+    console.log("Your love score is " + loveScore +"%");
 } else {
     console.log('ooh no love');
 }
