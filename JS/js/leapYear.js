@@ -8,21 +8,19 @@ unless the year is also evenly divisible by 400
 */
 function isLeap(year) {
 
-
     if (year % 4 === 0) {
-
         if (year % 100 === 0) {
             if (year % 400 === 0) {
-                console.log("leap year.");
+                return "Leap year.";
             } else {
-                console.log("Not leap year");
+                return "Not leap year.";
             }
         } else {
-            console.log("leap year");
+            return "Leap year.";
         }
     } else {
-        console.log("Not leap year.");
+        return "Not leap year.";
     }
 }
 
-isLeap(2000);
+isLeap(1948);
