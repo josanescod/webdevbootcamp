@@ -5,7 +5,24 @@ This is how to work out whether if a particular year is a leap year.
 on every year that is evenly divisible by 4
 except every year that is evenly divisible by 100
 unless the year is also evenly divisible by 400
-*/ 
+*/
 function isLeap(year) {
 
+
+    if (year % 4 === 0) {
+
+        if (year % 100 === 0) {
+            if (year % 400 === 0) {
+                console.log("leap year.");
+            } else {
+                console.log("Not leap year");
+            }
+        } else {
+            console.log("leap year");
+        }
+    } else {
+        console.log("Not leap year.");
+    }
 }
+
+isLeap(2000);
