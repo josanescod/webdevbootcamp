@@ -3,9 +3,6 @@
 and for the multiples of five print "Buzz". For numbers which are multiples of both three and five print "FizzBuzz"
 */
 
-// push add, pop delete last element
-
-
 let output = [];
 let count = 1;
 
