@@ -4,20 +4,17 @@ function fibonacciGenerator(n) {
     let output = [];
     if (n === 1) {
         output = [0];
-    } else if (n === 2){
-        output = [0,1];
-    }else {
-        output = [0,1];
+    } else if (n === 2) {
+        output = [0, 1];
+    } else {
+        output = [0, 1];
         for (var i = 2; i < n; i++) {
-            output.push(output[output.length - 2] + output [output.length - 1]); // [0, 1, 1]
-
+            output.push(output[output.length - 2] + output[output.length - 1]); // [0, 1, 1]
         }
-        
-       
     }
     return output;
 }
 
-output = fibonacciGenerator(4);
+output = fibonacciGenerator(10);
 console.log(output);
 
