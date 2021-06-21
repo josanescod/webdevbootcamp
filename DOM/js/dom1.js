@@ -1,3 +1,3 @@
-alert ("Hello to Bye");
+//alert ("Hello to Bye");
 
-document.querySelector("h1").innerHTML = "Good Bye";
+//document.querySelector("h1").innerHTML = "Good Bye";
