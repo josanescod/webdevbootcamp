@@ -16,11 +16,11 @@ img2.setAttribute('src', randomImageSource2);
 
 if (player1 > player2) {
 
-    displayWinner.innerHTML = 'Player 1 wins!';
+    displayWinner.innerHTML = '<span class="emoji">🚩</span> Player 1 wins!';
 
 } else if (player2 > player1) {
 
-    displayWinner.innerHTML = 'Player 2 wins!';
+    displayWinner.innerHTML = 'Player 2 wins! <span class="emoji"> 🚩</span>';
 
 } else {
 

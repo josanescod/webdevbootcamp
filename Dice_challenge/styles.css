@@ -7,7 +7,10 @@
 .dice {
   text-align: center;
   display: inline-block;
+}
 
+.emoji {
+  font-size: 90px;
 }
 
 body {
@@ -37,5 +40,4 @@ footer {
   color: #EEEEEE;
   text-align: center;
   font-family: 'Indie Flower', cursive;
-
 }
