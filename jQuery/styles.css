@@ -2,3 +2,8 @@
     font-size: 2rem;
     font-style: italic;
 }
+
+img {
+    height: 5em;
+    width: 5em;
+}
