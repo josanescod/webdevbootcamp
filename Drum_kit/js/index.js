@@ -4,16 +4,9 @@ for (let i = 0; i < numberOfDrumButtons; i++) {
 
     document.querySelectorAll('.drum')[i].addEventListener("click", function () {
 
-        /*console.log(this.innerHTML);
- 
-        if (this.innerHTML === 'w') {
-            console.log('has pulsado w');
-        }
- 
-        //change style color
-        this.style.color = 'white';*/
-        
-        switch (this.innerHTML) {
+        let buttonInnerHTML = this.innerHTML;
+
+        switch (buttonInnerHTML) {
             case 'w':
                 console.log('has pulsado w');
                 let tom1 = new Audio('sounds/tom-1.mp3');
@@ -49,7 +42,7 @@ for (let i = 0; i < numberOfDrumButtons; i++) {
                 let crash = new Audio('sounds/crash.mp3');
                 crash.play();
                 break;
-         
+
             case 'l':
                 console.log('has pulsado l');
                 let kick = new Audio('sounds/kick-bass.mp3');
