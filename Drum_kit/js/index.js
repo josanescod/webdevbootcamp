@@ -4,7 +4,8 @@ for (let i = 0; i < numberOfDrumButtons; i++) {
 
     document.querySelectorAll('.drum')[i].addEventListener("click", () => {
 
-        alert("I got clicked!");
+        let audio = new Audio ('sounds/tom-1.mp3')
+        audio.play();
 
     });
 }
