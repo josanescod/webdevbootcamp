@@ -1,2 +1,4 @@
 console.log("loading...");
-$('h1').html("Hello World with jQuery!");
+$('h1').html("Hello World with jQuery!")
+       .css("color","blue");
+
