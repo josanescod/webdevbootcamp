@@ -22,10 +22,10 @@ app.get("/", (req, res) => {
 
 app.post("/", (req, res) => {
     console.log(req.body.num1);
-    let num1 = parseInt(req.body.num1);
-    let num2 = parseInt(req.body.num2);
-    let sum = num1 + num2;
-    res.send(`sum is: ${sum}<br><a href="${process.env.URL}">Back</a>`);
+    let num1 = Number(req.body.num1);
+    let num2 = Number(req.body.num2);
+    let result= num1 + num2;
+    res.send(`the result of the calculation is: ${result}<br><a href="${process.env.URL}">Back</a>`);
 })
 
 app.listen(process.env.PORT, () => {
