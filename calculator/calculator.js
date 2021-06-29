@@ -1,15 +1,12 @@
 const express = require("express");
-require("dotenv").config();
 const path = require('path');
-const bmi = require("./modules/bmi.js")
+const bmi = require("./modules/bmi.js");
+require("dotenv").config();
 
 const app = express();
 
-//static folder css etc...
 app.use('/static', express.static(path.join(__dirname, 'public')));
 
-
-//post form action
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
@@ -19,24 +16,26 @@ app.get("/", (req, res) => {
 })
 
 app.post("/", (req, res) => {
+
     console.log(req.body.num1);
     let num1 = Number(req.body.num1);
     let num2 = Number(req.body.num2);
-    let result= num1 + num2;
+    let result = num1 + num2;
     res.send(`the result of the calculation is: ${result}<br><a href="${process.env.URL}">Back</a>`);
 })
 
 app.get("/bmicalculator", (req, res) => {
-    
+
     res.sendFile(__dirname + "/bmiCalculator.html");
 })
 
 app.post("/bmicalculator", (req, res) => {
+
     console.log(req.body);
-    let weight = Number(req.body.weight);
-    let height = Number(req.body.height);
-    let result= bmi.bmiCalculator(weight, height);
-    res.send(`${result}<br><a href="${process.env.URL}">Back</a>`);
+    let weight = parseFloat(req.body.weight);
+    let height = parseFloat(req.body.height);
+    let result = bmi.bmiCalculator(weight, height);
+    res.send(`${result}<br><a href="${process.env.URL}/bmicalculator">Back</a>`);
 })
 
 app.listen(process.env.PORT, () => {
