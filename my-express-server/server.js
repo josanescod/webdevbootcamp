@@ -13,11 +13,23 @@ app.get("/portfolio",(req,res)=>{
 <h3 style="color:green">Web app 1</h3>`);
 });
 
+app.get("/contact/oldcontact",(req,res)=>{
+    res.send("Contact me at: old@gmail.com");
+});
+
 app.get("/contact",(req,res)=>{
     res.send("Contact me at: name@gmail.com");
 });
 
+app.get("/about",(req,res)=>{
+    res.send("SysAdmin and Backend developer");
+});
+
+app.get("/hobbies",(req,res)=>{
+    res.send("<ul><li>Coffee</li><li>Beer</li><li>Coding</li><li>Linux</li></ul>")
+})
+
 
 app.listen(process.env.PORT,()=>{
-    console.log(`Example app listening at http://localhost:${process.env.PORT}`);
+    console.log(`app listening at http://localhost:${process.env.PORT}`);
 });
