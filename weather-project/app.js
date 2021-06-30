@@ -5,20 +5,22 @@ const https = require("https");
 const app = express();
 
 app.get("/", function(req, res){
-    const url = `https://api.weatherapi.com/v1/current.json?key=${process.env.APIKEY}&q=Barcelona&aqi=no`;
+    const url = `https://api.weatherapi.com/v1/current.json?key=${process.env.APIKEY}&q=London&aqi=no`;
     https.get(url,function(response){       
         response.on("data", function(data){          
             const weatherData = JSON.parse(data)   
             console.log(weatherData);      
-                         
             const location = weatherData.location.name;
             const condition = weatherData.current.condition.text
             const temp = weatherData.current.temp_c;
-            
-            res.send(`the temperature in ${location} is: ${temp} C and the condition is ${condition}`);
+            const imgURL = weatherData.current.condition.icon;
+            res.write("<h1>The wheather in mi city</h1><br>")
+            res.write(`<p>the temperature in ${location} is: ${temp} degrees Celsius and the condition is ${condition}</p>`);
+            res.write(`<img src='${imgURL}' alt="weather icon">`);
+            res.send();
         })
     })
-   // res.send("Server is up and running.");
+   
 });
 
 app.listen(process.env.PORT,function(){
