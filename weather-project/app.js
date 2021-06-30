@@ -6,25 +6,19 @@ const app = express();
 
 app.get("/", function(req, res){
     const url = `https://api.weatherapi.com/v1/current.json?key=${process.env.APIKEY}&q=Barcelona&aqi=no`;
-    https.get(url,function(response){
-        //console.log(response.statusCode);
-        response.on("data", function(data){
-            //console.log(data);
-            //pass hexadecimal data to JSON
-            const weatherData = JSON.parse(data)
-            //console.log(weatherData);
-            /*sample stringify
-            const user = {
-                name:"Shinosuke",
-                favouriteFood: "Ramen"
-            }
-            console.log(JSON.stringify(user));*/
+    https.get(url,function(response){       
+        response.on("data", function(data){          
+            const weatherData = JSON.parse(data)   
+            console.log(weatherData);      
+                         
             const location = weatherData.location.name;
-            const currentCondition = weatherData.current.condition.text
-            console.log( location + " " + currentCondition);
+            const condition = weatherData.current.condition.text
+            const temp = weatherData.current.temp_c;
+            
+            res.send(`the temperature in ${location} is: ${temp} C and the condition is ${condition}`);
         })
     })
-    res.send("Server is up and running.");
+   // res.send("Server is up and running.");
 });
 
 app.listen(process.env.PORT,function(){
