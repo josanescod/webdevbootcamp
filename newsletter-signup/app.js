@@ -15,7 +15,7 @@ app.post("/",function(req,res){
     let firstname = req.body.firstname;
     let lastname = req.body.lastname;
     let email = req.body.email;
-    console.log(firstname,lastname,email);
+    //console.log(firstname,lastname,email);
 
     var data = {
         members: [
@@ -36,11 +36,13 @@ app.post("/",function(req,res){
     const options = {
         method: "POST",
         auth: `sothvondeaqui:${process.env.APIKEY}`,
+        
     }
     const request = https.request(url, options ,function(response){
         
         if (response.statusCode === 200) {
             res.sendFile(__dirname + "/html/success.html");
+            
         }else {
             res.sendFile(__dirname + "/html/failure.html");
         }
@@ -54,6 +56,10 @@ app.post("/",function(req,res){
     request.write(jsonData);
     request.end();
 
+})
+
+app.post("/failure",function (req,res){
+    res.redirect("/");
 })
 
 app.listen(process.env.PORT,function(){
