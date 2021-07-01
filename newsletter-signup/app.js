@@ -38,6 +38,13 @@ app.post("/",function(req,res){
         auth: `sothvondeaqui:${process.env.APIKEY}`,
     }
     const request = https.request(url, options ,function(response){
+        
+        if (response.statusCode === 200) {
+            res.sendFile(__dirname + "/html/success.html");
+        }else {
+            res.sendFile(__dirname + "/html/failure.html");
+        }
+        
         response.on("data",function(data){
             console.log(JSON.parse(data));
         })
