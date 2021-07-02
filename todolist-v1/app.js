@@ -2,25 +2,46 @@ const express = require("express");
 const app = express();
 require('dotenv').config()
 
-app.set("view engine","ejs");
+app.set("view engine", "ejs");
 
-app.get("/",function(req,res){
+app.get("/", function (req, res) {
 
     let today = new Date();
-    let currentDay = today.getDay(); 
+    let currentDay = today.getDay();
     let day = "";
 
-    if(currentDay === 6 || currentDay === 0) {
-        day = "Weekend";
-        res.send("<h1>Yay it's the weekend</h1>");
-    }else {
-        day = "Weekday";
-        res.render("list",{ kindOfDay:day });
-    }   
+    switch (currentDay) {
+        case 0:
+            day = "Sunday";
+            break;
+        case 1:
+            day = "Monday";
+            break;
+        case 2:
+            day = "Tuesday";
+            break;
+        case 3:
+            day = "Wednesday";
+            break;
+        case 4:
+            day = "Thursday";
+            break;
+        case 5:
+            day = "Friday";
+            break;
+        case 6:
+            day = "Saturday";
+            break;
+        default:
+            console.log("Error: current day is equal to:" + currentDay);
+    }
 
+    res.render("list", { 
+        kindOfDay: day 
+    });
 });
 
-app.listen(process.env.PORT,function(){
+app.listen(process.env.PORT, function () {
     console.log(`Server started on port ${process.env.PORT}`);
 })
 
