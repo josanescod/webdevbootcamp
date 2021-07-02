@@ -5,8 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
+    <style>
+       
+        div {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+           
+        }
+    </style>
 </head>
 <body>
-    <h1>It's <%= kindOfDay %>!</h1>
+    <div>
+        
+        <h1><%= kindOfDay %></h1>        
+        <ul>         
+            <% for (let i=0; i< tasklist.length;i++) { %>
+                <li><%= tasklist[i] %></li>
+            <% } %>       
+        </ul>
+        <form action="/" method="POST">
+        <input type="text" name="newtask" placeholder="newtask">
+        <br>      
+            <button type="submmit" 
+            style="border:none;border-color:white;background-color:green;color:white" >
+            new task</button>
+            
+        </form>
+    </div>
+   
+
 </body>
 </html>
