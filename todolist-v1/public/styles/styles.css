@@ -1,0 +1,53 @@
+body {
+    /*background-color: #34495E;*/
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.curved {
+    background: #34495E;
+    color: #fff;
+    text-align: center;
+}
+
+/*.curved h1{
+    font-size: 2rem;
+    font-family: "Segoe UI", Tahoma,Geneva,Verdana,sans-serif;
+    margin-top:0;
+}
+
+.curved p{
+    font-size:1rem;
+    font-family: "Segoe UI", Tahoma,Geneva,Verdana,sans-serif;
+    margin:0 5rem 0 5rem; 
+    
+}*/
+
+.menu {
+    height: 55%;
+    margin-left: 40%;
+    margin-right: 40%;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    color: black;
+}
+
+.curved svg {
+    display: block;
+}
+
+.curved.upper {
+    background-color: #41B883;
+}
+
+/*button{
+
+    margin-top:2rem;
+}
+
+div{
+    
+}*/
