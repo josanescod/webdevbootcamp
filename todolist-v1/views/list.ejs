@@ -10,23 +10,32 @@
 </head>
 
 <body>
-    <h1>
-        <%= kindOfDay %>
-    </h1>
-    <ul>
-        <% for (let i=0; i< tasklist.length;i++) { %>
-            <li>
-                <%= tasklist[i] %>
-            </li>
-            <% } %>
-    </ul>
-    <form class="" action="/" method="POST">
-        <input type="text" name="newtask" placeholder="newtask">
-        <br>
-        <button type="submmit">
-            new task</button>
+    <div class="box" id="heading">
+        <h1>
+            <%= kindOfDay %>
+        </h1>
+    </div>
 
-    </form>
+    <div class="box">
+
+        <% for (let i=0; i< tasklist.length;i++) { %>
+            <div class="item">
+                <input type="checkbox">
+                <p>
+                    <%= tasklist[i] %>
+                </p>
+            </div>
+
+            <% } %>
+            <form class="item" action="/" method="POST">
+                <input type="text" name="newtask" placeholder="newtask" autocomplete="off">
+                <br>
+                <button type="submmit">+</button>
+            </form>
+
+    </div>
+
+
     <script>
         /*let currentTime = new Date();
         let currentYear = currentTime.getFullYear();
