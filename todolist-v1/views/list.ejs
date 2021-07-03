@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do List</title>
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
@@ -34,9 +34,9 @@
         </svg>
     </div>
     <div class="curved bottom">
-        <div class="menu">
+        <div class="menu ">
                 <h1><%= kindOfDay %></h1>        
-            <ul>         
+            <ul class="hidden">         
                 <% for (let i=0; i< tasklist.length;i++) { %>
                     <li><%= tasklist[i] %></li>
                 <% } %>       
@@ -54,10 +54,32 @@
             <path fill="#41B883" fill-opacity="1"
                 d="M0,192L34.3,186.7C68.6,181,137,171,206,154.7C274.3,139,343,117,411,138.7C480,160,549,224,617,213.3C685.7,203,754,117,823,101.3C891.4,85,960,139,1029,170.7C1097.1,203,1166,213,1234,213.3C1302.9,213,1371,203,1406,197.3L1440,192L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z">
             </path>
+            <text id="text" x="50%" y ="80%" fill="#34495E" font-family="Verdana" align="center" font-size="20" fill="white">©️ </text>
         </svg>
     </div>
+    
 
+<script>
+    let currentTime = new Date();
+    let currentYear = currentTime.getFullYear();  
+    let svgText =  document.querySelector("#text");
+    svgText.innerHTML = `©️ ${currentYear}`;
+    console.log(svgText);
 
+    
+    /*let clientWidth = document.documentElement.clientWidth;
+    if (clientWidth <=375 ) {
+        svgText.setAttribute("y","80%");
+        svgText.setAttribute("x","45%");
+        svgText.setAttribute("font-size",70);
+        console.log("ok")
+        console.log(clientWidth)
+    }*/
+        
+    
+    
+
+</script>
 </body>
 
 </html>
