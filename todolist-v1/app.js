@@ -1,8 +1,8 @@
 const express = require("express");
 const app = express();
 require('dotenv').config()
-let newtask = ["Buy Food","Cook Food","Eat Food"];
-let Workitems = [];
+let items = ["Buy Food","Cook Food","Eat Food"];
+
 
 app.use(express.static('public'));
 app.set("view engine", "ejs");
@@ -17,41 +17,9 @@ app.get("/", function (req, res) {
         month: "long"
     };
     let day = today.toLocaleDateString("en-US",options);    
-    res.render("list", { 
-        listTitle: day,
-        tasklist: newtask
-    });
+    res.render("list", { kindOfDay: day, newListItems: items});
 });
 
-app.post("/",(req,res)=>{
-    let item = req.body.newtask;  
-    if (item === "clean"){
-        newtask = [];
-    } else {
-        newtask.push(item) ;
-    }
-    
-    res.redirect("/");
-})
-
-app.get("/work",function(req,res){
-    res.render("list",
-    {
-        listTitle: "Work List",
-        tasklist: items
-
-    }
-    
-    )
-});
-
-app.post("/work", function(req,res){
-   if (req.body.list === "")
-    let item = req.body.newItem;
-    
-    Workitems.push(item);
-    res.redirect("/work");
-})
 app.listen(process.env.PORT, function () {
     console.log(`Server started on port ${process.env.PORT}`);
 })
