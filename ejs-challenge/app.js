@@ -1,7 +1,7 @@
 //jshint esversion:6
 
 const express = require("express");
-const bodyParser = require("body-parser");
+//const bodyParser = require("body-parser");
 const ejs = require("ejs");
 require('dotenv').config();
 
@@ -12,12 +12,25 @@ const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rho
 const app = express();
 
 app.set('view engine', 'ejs');
-
 app.use(express.urlencoded({extended: true})); //POST
 app.use(express.static("public"));
 
 
+app.get("/", function (req, res) {
+  res.render("home",{ homeContent : homeStartingContent });
+});
 
+app.get("/about", function (req, res) {
+  res.render("about",{ aboutContent : aboutContent });
+});
+
+app.get("/contact", function (req, res) {
+  res.render("contact",{ contactContent : contactContent });
+});
+
+app.get("/compose", function (req, res) {
+  res.render("compose");
+});
 
 
 
