@@ -18,7 +18,11 @@ app.use(express.static("public"));
 
 
 app.get("/", function (req, res) {
-  res.render("home",{ homeContent : homeStartingContent });
+  posts.forEach(post => console.log(post.title));
+  res.render("home",
+  { homeContent : homeStartingContent,
+    posts : posts
+  });
 });
 
 app.get("/about", function (req, res) {
@@ -40,19 +44,9 @@ app.post("/compose",function(req,res){
     content : req.body.postBody,
   }
 
-  posts.push(post);
-  console.log(posts);
-  
+  posts.push(post);  
   res.redirect("/");
 })
-
-
-
-
-
-
-
-
 
 
 app.listen(process.env.PORT, function() {
