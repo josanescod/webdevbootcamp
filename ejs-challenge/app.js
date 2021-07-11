@@ -13,42 +13,58 @@ const app = express();
 let posts = [];
 
 app.set('view engine', 'ejs');
-app.use(express.urlencoded({extended: true})); //POST
+app.use(express.urlencoded({ extended: true })); //POST
 app.use(express.static("public"));
 
 
 app.get("/", function (req, res) {
-  posts.forEach(post => console.log(post.title));
+  //posts.forEach(post => console.log(post.title));
   res.render("home",
-  { homeContent : homeStartingContent,
-    posts : posts
-  });
+    {
+      homeContent: homeStartingContent,
+      posts: posts
+    });
 });
 
 app.get("/about", function (req, res) {
-  res.render("about",{ aboutContent : aboutContent });
+  res.render("about", { aboutContent: aboutContent });
 });
 
 app.get("/contact", function (req, res) {
-  res.render("contact",{ contactContent : contactContent });
+  res.render("contact", { contactContent: contactContent });
 });
 
 app.get("/compose", function (req, res) {
   res.render("compose");
 });
 
-app.post("/compose",function(req,res){
-  
-  const post = {
-    title : req.body.postTitle,
-    content : req.body.postBody,
-  }
+app.post("/compose", function (req, res) {
 
-  posts.push(post);  
+  const post = {
+    title: req.body.postTitle,
+    content: req.body.postBody,
+  }
+  posts.push(post);
   res.redirect("/");
 })
 
+app.get("/posts/:postName", function (req, res) {
+  let requestedTitle = req.params.postName
+  /*for (i = 0; i < posts.length; i++) {
+    if (posts[i].title === requestedTitle){
+      console.log("match!");
+    }
+  }*/
+  posts.forEach(post => {
+    let storedTitle = post.title;
+    if (storedTitle === requestedTitle) {
+      console.log("Match found!");
+    }
+  });
+  res.redirect("/");
 
-app.listen(process.env.PORT, function() {
+})
+
+app.listen(process.env.PORT, function () {
   console.log(`Server started on port ${process.env.PORT}`);
 });
