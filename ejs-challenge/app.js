@@ -18,7 +18,6 @@ app.use(express.static("public"));
 
 
 app.get("/", function (req, res) {
-  //posts.forEach(post => console.log(post.title));
   res.render("home",
     {
       homeContent: homeStartingContent,
@@ -39,7 +38,6 @@ app.get("/compose", function (req, res) {
 });
 
 app.post("/compose", function (req, res) {
-
   const post = {
     title: req.body.postTitle,
     content: req.body.postBody,
@@ -49,16 +47,18 @@ app.post("/compose", function (req, res) {
 })
 
 app.get("/posts/:postName", function (req, res) {
-  let requestedTitle = _.lowerCase(req.params.postName);  
+  let requestedTitle = _.lowerCase(req.params.postName);
   posts.forEach(post => {
-    let storedTitle = _.lowerCase(post.title);    
-    if (storedTitle === requestedTitle) { 
-      console.log(requestedTitle,storedTitle);     
+    let storedTitle = _.lowerCase(post.title);
+    if (storedTitle === requestedTitle) {
       console.log("Match found!");
+      res.render(
+        "post", {
+        title: post.title,
+        content: post.content
+      });
     }
   });
-  res.redirect("/");
-
 })
 
 app.listen(process.env.PORT, function () {
