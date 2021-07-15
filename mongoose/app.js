@@ -13,25 +13,52 @@ const fruitSchema = new mongoose.Schema({
 //create Model name of collection in singular and Schema
 const Fruit = mongoose.model("Fruit",fruitSchema);
 
+//create new document inside collection
 const fruit = new Fruit ({
     name: "Apple",
     rating: "7",
     review: "Pretty solid as a fruit."
 });
-//fruit.save(); //save this document inside Fruit(s) collections in fruitsDB
+fruit.save(); //save this document inside Fruit(s) collections in fruitsDB
 
 //new collection People
-const peopleSchema = new mongoose.Schema({
-    name: String
+const personSchema = new mongoose.Schema({
+    name: String,
+    age: Number
     
 })
 
-//Model
-const People = mongoose.model("People",peopleSchema);
+//create Model name of collection in singular and Schema
+const Person = mongoose.model("Person",personSchema);
 
-const people = new People ({
-    name: "people1"
+//create new document inside collection
+const person = new Person ({
+    name: "Jhon",
+    age: 37
 })
 
-//people.save();
+//save this document inside Fruit(s) collections in fruitsDB
+person.save();
  
+
+//save multiple fruits
+const kiwi = new Fruit({
+    name: "Kiwi",
+    rating: 8,
+    review: "The best fruit!"
+});
+
+const orange = new Fruit({
+    name: "Orange",
+    rating: 4,
+    review: "Too sour for me"
+});
+
+const banana = new Fruit ({
+    name:"Banana",
+    rating : 3,
+    review: "Weird texture"
+})
+
+const fruitsArray = [kiwi,orange,banana];
+Fruit.insertMany(fruitsArray)
