@@ -42,7 +42,7 @@ const person = new Person ({
  
 
 //save multiple fruits
-const kiwi = new Fruit({
+/* const kiwi = new Fruit({
     name: "Kiwi",
     rating: 8,
     review: "The best fruit!"
@@ -61,7 +61,7 @@ const banana = new Fruit ({
 })
 
 const fruitsArray = [apple,kiwi,orange,banana];
-/* Fruit.insertMany(fruitsArray, function(err) {
+ Fruit.insertMany(fruitsArray, function(err) {
     if (err) {
         console.log(err);
     }else {
@@ -85,3 +85,5 @@ Fruit.find(function(err,fruits){
     }    
     mongoose.connection.close();
 })
+
+//data validation
