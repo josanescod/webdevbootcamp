@@ -21,7 +21,7 @@ const fruit = new Fruit ({
 });
 fruit.save(); //save this document inside Fruit(s) collections in fruitsDB
 
-//new collection People
+//new collection person
 const personSchema = new mongoose.Schema({
     name: String,
     age: Number
@@ -61,4 +61,10 @@ const banana = new Fruit ({
 })
 
 const fruitsArray = [kiwi,orange,banana];
-Fruit.insertMany(fruitsArray)
+Fruit.insertMany(fruitsArray, function(err) {
+    if (err) {
+        console.log(err);
+    }else {
+        console.log("Successfuly saved all the fruits")
+    }
+})
