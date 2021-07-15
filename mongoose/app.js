@@ -14,12 +14,12 @@ const fruitSchema = new mongoose.Schema({
 const Fruit = mongoose.model("Fruit",fruitSchema);
 
 //create new document inside collection
-const fruit = new Fruit ({
+const apple = new Fruit ({
     name: "Apple",
     rating: "7",
     review: "Pretty solid as a fruit."
 });
-fruit.save(); //save this document inside Fruit(s) collections in fruitsDB
+//apple.save(); //save this document inside Fruit(s) collections in fruitsDB
 
 //new collection person
 const personSchema = new mongoose.Schema({
@@ -38,7 +38,7 @@ const person = new Person ({
 })
 
 //save this document inside Fruit(s) collections in fruitsDB
-person.save();
+//person.save();
  
 
 //save multiple fruits
@@ -60,11 +60,28 @@ const banana = new Fruit ({
     review: "Weird texture"
 })
 
-const fruitsArray = [kiwi,orange,banana];
-Fruit.insertMany(fruitsArray, function(err) {
+const fruitsArray = [apple,kiwi,orange,banana];
+/* Fruit.insertMany(fruitsArray, function(err) {
     if (err) {
         console.log(err);
     }else {
         console.log("Successfuly saved all the fruits")
     }
+}) */
+
+//read, querys 
+Fruit.find(function(err,fruits){
+    if (err) {
+        console.log(err);
+    }else{
+        console.log(fruits);
+        
+        
+
+        fruits.forEach( function(fruit){
+            console.log(fruit.name,fruit.rating);
+        });
+       
+    }    
+    mongoose.connection.close();
 })
