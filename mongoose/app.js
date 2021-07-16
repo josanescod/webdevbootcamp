@@ -9,7 +9,10 @@ data validation moongose has built-in validators
 
 */
 const fruitSchema = new mongoose.Schema({
-    name: String,
+    name:{
+        type: String,
+        required: [true, "Please check your data entry, no name specified"]
+    },
     //validation
     rating: {
         
@@ -26,7 +29,7 @@ const Fruit = mongoose.model("Fruit",fruitSchema);
 
 //create new document inside collection
 const apple = new Fruit ({
-    name: "Apple",
+    //name: "Apple",
     rating: "7",
     review: "Pretty solid as a fruit."
 });
