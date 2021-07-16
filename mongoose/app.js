@@ -28,12 +28,12 @@ const fruitSchema = new mongoose.Schema({
 const Fruit = mongoose.model("Fruit",fruitSchema);
 
 //create new document inside collection
-const apple = new Fruit ({
-    //name: "Apple",
-    rating: "7",
-    review: "Pretty solid as a fruit."
+const peach = new Fruit ({
+    name: "Peach",
+    rating: "9",
+    review: "Delicious fruit"
 });
-//apple.save(); //save this document inside Fruit(s) collections in fruitsDB
+//peach.save(); //save this document inside Fruit(s) collections in fruitsDB
 
 //new collection person
 const personSchema = new mongoose.Schema({
@@ -47,12 +47,13 @@ const Person = mongoose.model("Person",personSchema);
 
 //create new document inside collection
 const person = new Person ({
-    name: "Jhon",
+    name: "Josh",
     age: 37
 })
 
 //save this document inside Fruit(s) collections in fruitsDB
-//person.save();
+
+person.save();
  
 
 //save multiple fruits
@@ -101,3 +102,31 @@ Fruit.find(function(err,fruits){
 })
 
 
+//update
+Fruit.updateOne({_id: "60f004d33f06e82210a5cf40"},{rating: 2},
+function (err){
+    if (err){
+        console.log(err);
+    }else {
+        console.log("Successfully updated the document.")
+    }
+    
+});
+
+//delete 
+Fruit.deleteOne({name:"Peach"},function (err){
+    if (err){
+        console.log(err);
+    }else {
+        console.log("Successfully deleted the document.")
+    }
+    });
+
+//deleteMany
+Person.deleteMany({name:"Jhon"},function (err){
+    if (err){
+        console.log(err);
+    }else {
+        console.log("Successfully deleted all documents.")
+    }
+    });
