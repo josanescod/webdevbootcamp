@@ -3,10 +3,21 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/fruitsDB', {useNewUrlParser: true, useUnifiedTopology: true});
 
 
-//create new schema o blueprint o structure
+/*
+create new schema o blueprint o structure
+data validation moongose has built-in validators 
+
+*/
 const fruitSchema = new mongoose.Schema({
     name: String,
-    rating: Number,
+    //validation
+    rating: {
+        
+        type: Number,
+        min: 1,
+        max: 10
+    
+    },
     review: String,
 });
 
@@ -86,4 +97,4 @@ Fruit.find(function(err,fruits){
     mongoose.connection.close();
 })
 
-//data validation
+
