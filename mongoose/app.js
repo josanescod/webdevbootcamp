@@ -38,7 +38,8 @@ const peach = new Fruit ({
 //new collection person
 const personSchema = new mongoose.Schema({
     name: String,
-    age: Number
+    age: Number,
+    favouriteFruit: fruitSchema
     
 })
 
@@ -48,13 +49,31 @@ const Person = mongoose.model("Person",personSchema);
 //create new document inside collection
 const person = new Person ({
     name: "Josh",
-    age: 37
+    age: 37,
+    
 })
 
 //save this document inside Fruit(s) collections in fruitsDB
 
-person.save();
+//person.save();
  
+const pineapple = new Fruit({
+    name: "Pineapple",
+    rating: 9,
+    review: "Great fruit."
+})
+
+pineapple.save();
+
+//create new document inside collection
+const girl = new Person ({
+    name: "Amy",
+    age: 20,
+    favouriteFruit: pineapple
+    
+});
+
+girl.save();
 
 //save multiple fruits
 /* const kiwi = new Fruit({
@@ -130,3 +149,10 @@ Person.deleteMany({name:"Jhon"},function (err){
         console.log("Successfully deleted all documents.")
     }
     });
+
+/* 
+Establishing relationships and embedding documents using Moongose
+for example person favorite fruit
+*/
+
+
