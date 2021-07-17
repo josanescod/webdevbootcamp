@@ -43,13 +43,23 @@ const personSchema = new mongoose.Schema({
     
 })
 
+const watermelon = new Fruit({
+    name: "Watermelon",
+    rating: 5,
+    review: "very refreshing fruit"
+});
+
+//watermelon.save();
+
+
 //create Model name of collection in singular and Schema
 const Person = mongoose.model("Person",personSchema);
 
 //create new document inside collection
 const person = new Person ({
-    name: "Josh",
-    age: 37,
+    name: "Jonh",
+    age: 44,
+    favouriteFruit: watermelon
     
 })
 
@@ -63,7 +73,7 @@ const pineapple = new Fruit({
     review: "Great fruit."
 })
 
-pineapple.save();
+//pineapple.save();
 
 //create new document inside collection
 const girl = new Person ({
@@ -73,7 +83,9 @@ const girl = new Person ({
     
 });
 
-girl.save();
+//girl.save();
+
+
 
 //save multiple fruits
 /* const kiwi = new Fruit({
@@ -123,6 +135,16 @@ Fruit.find(function(err,fruits){
 
 //update
 Fruit.updateOne({_id: "60f004d33f06e82210a5cf40"},{rating: 2},
+function (err){
+    if (err){
+        console.log(err);
+    }else {
+        console.log("Successfully updated the document.")
+    }
+    
+});
+
+Person.updateOne({name:"Amy"},{favouriteFruit: pineapple},
 function (err){
     if (err){
         console.log(err);
