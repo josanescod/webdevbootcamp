@@ -1,5 +1,4 @@
 const express = require("express");
-const date = require(__dirname + "/date.js");
 const mongoose = require('mongoose');
 require('dotenv').config()
 
@@ -11,7 +10,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 //create new database
-mongoose.connect(`${process.env.MONGODB}`,{useNewUrlParser: true})
+mongoose.connect(`${process.env.MONGODB}`,{useNewUrlParser: true, useUnifiedTopology: true});
 
 //create new Schema
 const itemsSchema = new mongoose.Schema({
@@ -19,27 +18,33 @@ const itemsSchema = new mongoose.Schema({
 });
 
 //create Model name of collection in singular and Schema
-const Item = moongose.model("Item", itemsSchema)
+const Item = mongoose.model("Item", itemsSchema)
 
 //create three new documents
-const run10km = {
-  name: "Run 10 km"
+const item1 = new Item({
+  name: "Welcome to your todolist!"
 
-}
+});
 
-const studyJS = {
-  name: "Study JS 1 hour"
+const item2 = new Item({
+  name: "Hit the + button to add a new item."
 
-}
+})
 
-const feedCat = {
-  name: "Feed the cat"
+const item3 = new Item({
+  name: "<-- Hit this to delete an item."
 
-}
+})
 
-run10km.save();
-studyJS.save();
-feedCat.save();
+const defaultItems = [item1,item2,item3];
+
+Item.insertMany(defaultItems, function (err) {
+  if (err) {
+    console.log(err);
+  }else {
+    console.log("Succesfuly saved default items to DB.")
+  }
+})
 
 
 app.get("/", function(req, res) {
