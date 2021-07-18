@@ -1,0 +1,1 @@
+{"version":"1.0.0","name":"todolist-v1","dependencies":{"body-parser":{"version":"1.18.3"},"ejs":{"version":"2.6.1"},"express":{"version":"4.16.3"},"nodemon":{"version":"2.0.12"}}}
