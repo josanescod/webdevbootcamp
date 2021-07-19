@@ -68,9 +68,9 @@ app.post("/", function (req, res) {
   if (req.body.list === "Work") {
     workItems.push(item);
     res.redirect("/work");
-  } else {    
+  } else {
     const item = new Item({
-      name: itemName    
+      name: itemName
     });
     item.save();
     res.redirect("/");
@@ -85,13 +85,17 @@ app.get("/about", function (req, res) {
   res.render("about");
 });
 
-app.post("/delete",function(req,res){
-  const checkbox = req.body
-
-  console.log(checkbox);
-  
-
-
+app.post("/delete", function (req, res) {
+  const checkItemId = req.body.checkbox
+  //console.log(checkItemId)
+  Item.deleteOne({ _id: `${checkItemId}` }, function (err) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Succesfuly deleted checked item to DB.");
+    }
+  });
+  res.redirect("/");
 });
 
 app.listen(process.env.PORT, function () {
