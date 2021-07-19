@@ -85,6 +85,15 @@ app.get("/about", function (req, res) {
   res.render("about");
 });
 
+app.post("/delete",function(req,res){
+  const checkbox = req.body
+
+  console.log(checkbox);
+  
+
+
+});
+
 app.listen(process.env.PORT, function () {
   console.log(`Server started on port ${process.env.PORT}`);
 });
