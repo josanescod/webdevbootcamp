@@ -48,11 +48,7 @@ const listSchema = new mongoose.Schema({
 const List = mongoose.model("List", listSchema);
 
 
-
-
-
 app.get("/", function (req, res) {
-
   //read querys
   Item.find(function (err, foundItems) {
 
@@ -69,15 +65,11 @@ app.get("/", function (req, res) {
     } else {
       res.render("list", { listTitle: "Today", newListItems: foundItems });
     }
-  })
-
-
+  });
 });
 
 app.post("/", function (req, res) {
-
   const itemName = req.body.newItem;
-
   if (req.body.list === "Work") {
     workItems.push(item);
     res.redirect("/work");
@@ -90,12 +82,7 @@ app.post("/", function (req, res) {
   }
 });
 
-/*
-app.get("/work", function (req, res) {
-  res.render("list", { listTitle: "Work List", newListItems: workItems });
-});
-*/
-
+//creating custom lists using express route parameters
 
 app.get("/:customListName", function (req, res) {
   const customListName = req.params.customListName;
@@ -114,20 +101,12 @@ app.get("/:customListName", function (req, res) {
       const list = new List({
         name: customListName,
         items: defaultItems
-      })
-
+      });
       list.save();
-      res.redirect("/"+customListName);
-
+      res.redirect("/" + customListName);
     }
-
   })
-
-
- 
-
 });
-
 
 app.get("/about", function (req, res) {
   res.render("about");
@@ -145,10 +124,6 @@ app.post("/delete", function (req, res) {
   });
   res.redirect("/");
 });
-
-//creating custom lists using express route parameters
-
-
 
 app.listen(process.env.PORT, function () {
   console.log(`Server started on port ${process.env.PORT}`);
