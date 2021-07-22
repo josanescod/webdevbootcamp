@@ -124,16 +124,32 @@ app.get("/about", function (req, res) {
 
 app.post("/delete", function (req, res) {
   const checkItemId = req.body.checkbox
+  const listName = req.body.listName;
+  console.log(checkItemId, listName);
   //console.log(checkItemId)
-  Item.deleteOne({ _id: `${checkItemId}` }, function (err) {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log("Succesfuly deleted checked item to DB.");
-    }
-  });
-  res.redirect("/");
+
+
+  if (listName === "Today") {
+    Item.deleteOne({ _id: `${checkItemId}` }, function (err) {
+      if (!err) {
+        console.log("Succesfuly deleted checked item to DB.");
+        res.redirect("/");
+      }
+    });
+    
+  } else {
+
+    List.findOneAndUpdate({name: listName},{$pull: {items: {_id: checkItemId}}},function (err,foundList) {
+      if (!err) {
+        res.redirect("/" + listName);
+      }
+
+    })
+
+  }
+
 });
+
 
 app.listen(process.env.PORT, function () {
   console.log(`Server started on port ${process.env.PORT}`);
