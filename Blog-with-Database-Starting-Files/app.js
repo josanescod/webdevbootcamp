@@ -21,7 +21,6 @@ app.use(express.static("public"));
 //create new database
 mongoose.connect(`${process.env.MONGODB}`, { useNewUrlParser: true, useUnifiedTopology: true });
 
-
 //new schema
 const postSchema = new mongoose.Schema({
   title: String,
@@ -32,21 +31,17 @@ const postSchema = new mongoose.Schema({
 //new model
 const Post = mongoose.model("Post", postSchema);
 
-
 app.get("/", function (req, res) {
-  Post.find({}, function(err, posts){
+  Post.find({}, function (err, posts) {
 
     res.render("home", {
- 
+
       startingContent: homeStartingContent,
- 
+
       posts: posts
- 
-      });
- 
+
+    });
   })
- 
- 
 });
 
 app.get("/about", function (req, res) {
@@ -62,48 +57,27 @@ app.get("/compose", function (req, res) {
 });
 
 app.post("/compose", function (req, res) {
-  /*const post = {
-    title: req.body.postTitle,
-    content: req.body.postBody
-  };*/
-
 
   const post = new Post({
     title: req.body.postTitle,
     content: req.body.postBody
   });
-
-  post.save(function(err){
-
-    if (!err){
- 
+  post.save(function (err) {
+    if (!err) {
       res.redirect("/");
- 
     }
- 
   });
-
-
-
-  //posts.push(post);
-
-  //res.redirect("/");
-
 });
 
-app.get("/posts/:postName", function (req, res) {
-  const requestedTitle = _.lowerCase(req.params.postName);
-
-  posts.forEach(function (post) {
-    const storedTitle = _.lowerCase(post.title);
-
-    if (storedTitle === requestedTitle) {
-      res.render("post", {
-        title: post.title,
-        content: post.content
-      });
-    }
-  });
+app.get("/posts/:postId", function (req, res) {
+  
+  const requestedPostId = req.params.postId;
+  Post.findOne({_id: requestedPostId}, function(err, post){
+    res.render("post", {
+       title: post.title, 
+      content: post.content 
+    }); 
+  });  
 
 });
 
