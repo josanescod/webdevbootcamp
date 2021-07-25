@@ -16,7 +16,7 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-let posts = [];
+//let posts = [];
 
 //create new database
 mongoose.connect(`${process.env.MONGODB}`, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -34,10 +34,19 @@ const Post = mongoose.model("Post", postSchema);
 
 
 app.get("/", function (req, res) {
-  res.render("home", {
-    startingContent: homeStartingContent,
-    posts: posts
-  });
+  Post.find({}, function(err, posts){
+
+    res.render("home", {
+ 
+      startingContent: homeStartingContent,
+ 
+      posts: posts
+ 
+      });
+ 
+  })
+ 
+ 
 });
 
 app.get("/about", function (req, res) {
@@ -53,24 +62,32 @@ app.get("/compose", function (req, res) {
 });
 
 app.post("/compose", function (req, res) {
-  const post = {
+  /*const post = {
     title: req.body.postTitle,
     content: req.body.postBody
-  };
+  };*/
 
 
-  const postdb = new Post({
+  const post = new Post({
     title: req.body.postTitle,
     content: req.body.postBody
   });
 
-  postdb.save();
+  post.save(function(err){
+
+    if (!err){
+ 
+      res.redirect("/");
+ 
+    }
+ 
+  });
 
 
 
-  posts.push(post);
+  //posts.push(post);
 
-  res.redirect("/");
+  //res.redirect("/");
 
 });
 
