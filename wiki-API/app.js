@@ -13,14 +13,14 @@ app.set('view engine', 'ejs');
 mongoose.connect(`${process.env.MONGODB}`, { useNewUrlParser: true, useUnifiedTopology: true });
 
 //new schema
-const wikiSchema = new mongoose.Schema({
+const articleSchema = new mongoose.Schema({
     title: String,
     content: String
 
 });
 
 //new model
-const Article = mongoose.model("Article", wikiSchema);
+const Article = mongoose.model("Article", articleSchema);
 
 
 
