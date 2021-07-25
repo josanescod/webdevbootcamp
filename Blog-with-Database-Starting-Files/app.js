@@ -1,5 +1,3 @@
-//Blog challenge
-
 const express = require("express");
 const ejs = require("ejs");
 const _ = require("lodash");
@@ -15,8 +13,6 @@ app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
-
-//let posts = [];
 
 //create new database
 mongoose.connect(`${process.env.MONGODB}`, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -70,14 +66,14 @@ app.post("/compose", function (req, res) {
 });
 
 app.get("/posts/:postId", function (req, res) {
-  
+
   const requestedPostId = req.params.postId;
-  Post.findOne({_id: requestedPostId}, function(err, post){
+  Post.findOne({ _id: requestedPostId }, function (err, post) {
     res.render("post", {
-       title: post.title, 
-      content: post.content 
-    }); 
-  });  
+      title: post.title,
+      content: post.content
+    });
+  });
 
 });
 
