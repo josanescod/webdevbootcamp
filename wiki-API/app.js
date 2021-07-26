@@ -1,8 +1,12 @@
+/*
+RESTful
+http verbs: GET, POST, PUT, PATCH, DELETE
+*/
+
 const express = require("express");
 const mongoose = require('mongoose');
 const ejs = require("ejs");
 require('dotenv').config();
-
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
@@ -22,7 +26,22 @@ const articleSchema = new mongoose.Schema({
 //new model
 const Article = mongoose.model("Article", articleSchema);
 
+//RESTFUL verbs
+//GET
+app.get("/articles", function (req, res) {
 
+    //query find all of the articles in the articles collection
+    Article.find(function (err, foundArticles) {
+
+        if (!err) {
+            res.send(foundArticles);
+        } else {
+            res.send(err);
+        }
+
+    });
+
+});
 
 app.listen(process.env.PORT, function () {
     console.log(`Server started on port ${process.env.PORT}`);
