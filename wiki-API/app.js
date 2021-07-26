@@ -27,51 +27,40 @@ const articleSchema = new mongoose.Schema({
 const Article = mongoose.model("Article", articleSchema);
 
 //RESTFUL verbs
-//GET
-app.get("/articles", function (req, res) {
+//refactor with app.route()
+app.route("/articles")
 
-    //query find all of the articles in the articles collection
-    Article.find(function (err, foundArticles) {
-
-        if (!err) {
-            res.send(foundArticles);
-        } else {
-            res.send(err);
-        }
-
-    });
-
-});
-
-//POST
-app.post("/articles", function (req, res) {
-
-    const newArticle = new Article({
-        title: req.body.title,
-        content: req.body.content
-    });
-
-    newArticle.save(function (err) {
-        if (!err) {
-            res.send("Succesfully added a new article.");
-        } else {
-            res.send(err);
-        }
-    });
-});
-
-//DELETE
-app.delete("/articles",function(req,res) {
-
-    Article.deleteMany(function(err){
-        if (!err) {
-            res.send("Succesfully deleted all articles.");
-        } else {
-            res.send(err);
-        }
+    .get(function (req, res) {
+        Article.find(function (err, foundArticles) {
+            if (!err) {
+                res.send(foundArticles);
+            } else {
+                res.send(err);
+            }
+        });
     })
-
-});
+    .post(function (req, res) {
+        const newArticle = new Article({
+            title: req.body.title,
+            content: req.body.content
+        });
+        newArticle.save(function (err) {
+            if (!err) {
+                res.send("Succesfully added a new article.");
+            } else {
+                res.send(err);
+            }
+        });
+    })
+    .delete(function (req, res) {
+        Article.deleteMany(function (err) {
+            if (!err) {
+                res.send("Succesfully deleted all articles.");
+            } else {
+                res.send(err);
+            }
+        })
+    });
 
 app.listen(process.env.PORT, function () {
     console.log(`Server started on port ${process.env.PORT}`);
