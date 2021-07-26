@@ -55,11 +55,21 @@ app.post("/articles", function (req, res) {
         if (!err) {
             res.send("Succesfully added a new article.");
         } else {
-            rese.send(err);
+            res.send(err);
         }
     });
+});
 
+//DELETE
+app.delete("/articles",function(req,res) {
 
+    Article.deleteMany(function(err){
+        if (!err) {
+            res.send("Succesfully removed all articles.");
+        } else {
+            res.send(err);
+        }
+    })
 
 });
 
