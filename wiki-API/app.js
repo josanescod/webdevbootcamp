@@ -43,6 +43,26 @@ app.get("/articles", function (req, res) {
 
 });
 
+//POST
+app.post("/articles", function (req, res) {
+
+    const newArticle = new Article({
+        title: req.body.title,
+        content: req.body.content
+    });
+
+    newArticle.save(function (err) {
+        if (!err) {
+            res.send("Succesfully added a new article.");
+        } else {
+            rese.send(err);
+        }
+    });
+
+
+
+});
+
 app.listen(process.env.PORT, function () {
     console.log(`Server started on port ${process.env.PORT}`);
 });
