@@ -65,7 +65,7 @@ app.delete("/articles",function(req,res) {
 
     Article.deleteMany(function(err){
         if (!err) {
-            res.send("Succesfully removed all articles.");
+            res.send("Succesfully deleted all articles.");
         } else {
             res.send(err);
         }
