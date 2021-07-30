@@ -2,6 +2,7 @@ const express = require("express");
 const ejs = require("ejs");
 require('dotenv').config();
 const mongoose = require ("mongoose");
+const encrypt = require ("mongoose-encryption");
 
 
 const app = express();
@@ -11,12 +12,17 @@ app.set('view engine', 'ejs');
 
 mongoose.connect(`${process.env.MONGODB}`, { useNewUrlParser: true, useUnifiedTopology: true });
 
-//new Schema
+//new Schema changed to mongooSchema
 
-const userSchema = {
+const userSchema = new mongoose.Schema ({
     email: String,
     password: String
-};
+});
+
+//secret
+userSchema.plugin(encrypt, { secret:process.env.SECRET , encryptedFields: ['password'] });
+
+ 
 
 //new model
 const User = new mongoose.model("User", userSchema);
