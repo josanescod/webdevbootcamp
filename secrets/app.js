@@ -1,16 +1,18 @@
+require('dotenv').config();
 const express = require("express");
 const ejs = require("ejs");
-require('dotenv').config();
 const mongoose = require ("mongoose");
 const encrypt = require ("mongoose-encryption");
-
-
 const app = express();
+const MONGODB = process.env.MONGODB;
+const SECRET = process.env.SECRET;
+const PORT = process.env.PORT;
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.set('view engine', 'ejs');
 
-mongoose.connect(`${process.env.MONGODB}`, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(`${MONGODB}`, { useNewUrlParser: true, useUnifiedTopology: true });
 
 //new Schema changed to mongooSchema
 
@@ -20,7 +22,7 @@ const userSchema = new mongoose.Schema ({
 });
 
 //secret
-userSchema.plugin(encrypt, { secret:process.env.SECRET , encryptedFields: ['password'] });
+userSchema.plugin(encrypt, { secret:SECRET , encryptedFields: ['password'] });
 
  
 
@@ -80,5 +82,5 @@ app.get("/logout",function(req,res){
 })
 
 app.listen(process.env.PORT, function () {
-    console.log(`Server started on port ${process.env.PORT}`);
+    console.log(`Server started on port ${PORT}`);
 });
