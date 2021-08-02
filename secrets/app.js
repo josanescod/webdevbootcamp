@@ -61,7 +61,7 @@ app.post("/register", function(req,res){
 
 app.post("/login",function(req,res){
     const username = req.body.username;
-    const password = req.body.password;
+    const password = md5(req.body.password)
 
     User.findOne({email: username},function(err,foundUser){
         if (err){
@@ -70,6 +70,8 @@ app.post("/login",function(req,res){
             if (foundUser){
                 if (foundUser.password === password){
                     res.render("secrets");
+                }else {
+                    res.render("login");
                 }
             }
             
