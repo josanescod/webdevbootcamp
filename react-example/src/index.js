@@ -13,8 +13,19 @@ import './index.css';
 
 ReactDOM.render(
 <div>
-  <h1>Hello World!</h1>
-  <p>React tutorial</p>
+  <h1>React Tutorial</h1>
+  <p>Food</p>
+  <ul>
+    <li>
+      Bacon
+    </li>
+    <li>
+      Noodles
+    </li>
+    <li>
+      Jamon
+    </li>
+  </ul>
 </div>, 
   
   document.getElementById("root"));
