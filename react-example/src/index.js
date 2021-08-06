@@ -7,6 +7,15 @@ const currentYear = new Date().getFullYear();
 let copy =  "\u00A9";
 const img = "https://picsum.photos/200/300";
 
+let customStyle = {
+  color:"red",
+  fontSize: "20px",
+  border: "1px solid black",
+  marginRight: "70%",
+  alignText: "center"
+}
+customStyle.color = "blue";
+
 ReactDOM.render(
   
       <footer>
@@ -21,7 +30,7 @@ ReactDOM.render(
           <img className="logo-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/249px-Tux.svg.png" alt="Linux logo"/>
           <br/>
           <img className="logo-img" src={img+ '?grayscale'}/>
-          <p>
+          <p style={customStyle}>
             Copyright <span>{copy}</span> {currentYear}
           </p>
     </footer>
