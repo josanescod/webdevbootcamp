@@ -15,4 +15,16 @@ code {
     monospace;
 }
 
+.heading {
+  color:green;
+}
 
+
+p {
+  color:blue;
+}
+
+.logo-img {
+  width:25%;
+  height: 25%;
+}
