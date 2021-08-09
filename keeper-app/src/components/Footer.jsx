@@ -1,17 +1,13 @@
 import React from 'react';
 
+function Footer() {
 
-const d = new Date();
-const year = d.getFullYear();
-const copy = "©️"
+    const d = new Date();
+    const year = d.getFullYear();
 
-
-
-function Footer(){
-
-    return(
+    return (
         <footer>
-            <p>Copyright {copy} {year}</p>     
+            <p>Copyright ©️ {year}</p>
         </footer>
     );
 }
