@@ -1,11 +1,17 @@
 import React from 'react';
+import Header from './Header';
+import Note from './Note';
+import Footer from './Footer';
 
-function App(){
+function App() {
 
-    return(
+    return (
         <div>
-            <p>Hello World!</p>         
+            <Header />
+            <Note />
+            <Footer />
         </div>
+
     );
 }
 
