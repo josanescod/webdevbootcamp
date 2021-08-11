@@ -2,12 +2,15 @@ import React from 'react';
 import Header from './Header';
 import Card from './Card';
 import contacts from '../contacts';
+import Avatar from './Avatar';
 
 function App() {
   return (
     <div>
 
       <Header className="heading" />
+      <Avatar
+        img="https://cdn.photofunia.com/effects/jedi/examples/1guyznl_o.jpg" />
       <Card
         name={contacts[0].name}
         img={contacts[0].imgURL}
