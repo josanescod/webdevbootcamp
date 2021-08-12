@@ -4,6 +4,19 @@ import Card from './Card';
 import contacts from '../contacts';
 import Avatar from './Avatar';
 
+function createCard(contact) {
+  return <Card
+    key={contact.id} //React components children need unique key
+    id={contact.id} //custom id
+    name={contact.name}
+    img={contact.imgURL}
+    tel={contact.phone}
+    email={contact.email}
+
+  />
+}
+
+
 function App() {
   return (
     <div>
@@ -11,7 +24,9 @@ function App() {
       <Header className="heading" />
       <Avatar
         img="https://cdn.photofunia.com/effects/jedi/examples/1guyznl_o.jpg" />
-      <Card
+      {contacts.map(createCard)}
+
+      {/*<Card
         name={contacts[0].name}
         img={contacts[0].imgURL}
         tel={contacts[0].phone}
@@ -28,7 +43,7 @@ function App() {
         img={contacts[2].imgURL}
         tel={contacts[2].phone}
         email={contacts[2].email}
-      />
+      />*/}
 
     </div>
   );
