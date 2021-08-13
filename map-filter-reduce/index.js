@@ -1,6 +1,5 @@
-
-//const emojipedia = require('./emojipedia.js');
-import emojipedia from './emojipedia.mjs';
+//const emojipedia = require('./emojipedia.cjs');
+import emojipedia from './emojipedia.js';
 /* Map Filter Reduce*/
 var numbers = [3, 56, 2, 48, 5];
 
