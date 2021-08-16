@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import Time from './Time';
 
 function App() {
 
@@ -18,7 +18,9 @@ function App() {
             <h1>{count}</h1>
             <button onClick={increase}>+</button>
             <button onClick={decrease}>-</button>
+            <Time />
         </div>
+
     )
 }
 
