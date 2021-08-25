@@ -17,13 +17,11 @@ function App() {
         const { value, name } = event.target;
 
         setContact((prevValue) => {
-            return {
-
-                ...prevValue,
-                [name]: value
-            }
-
-        })
+            return ({
+                ...prevValue, [name]: value
+            })
+        }
+        );
 
     }
 
